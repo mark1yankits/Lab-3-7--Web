@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    text-transform: capitalize;
+    font-family: 'Manrope', sans-serif;
+    background: transparent;
+}
+body {
+    background-color: #1F2022;
+}
+/* ---------------------------- */
+/*              MAIN            */
+/* ---------------------------- */
+
+
+/* left part */
+
+.container__detailInit {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 8%;
+    gap: 2rem;
+    align-items: flex-start;
+
+    margin-top: 4rem;
+}
+
+
+.left__part__detail,
+.right__part__detail {
+    width: 50%; 
+}
+
+.left__part__detail video {
+    width: 100%;
+    height: auto; 
+    border-radius: 10px; 
+}
+
+.dev__resources{
+    color: #858B95;
+    margin-top: 1rem;
+    font-size: 14px;
+}
+
+@media (max-width: 830px) {
+    .container__detailInit {
+        flex-direction: column;
+    }
+    .left__part__detail,
+    .right__part__detail {
+        width: 100%;
+    }
+}
+
+/* right part */
+.title__detail{
+    align-self: stretch;
+    color: #E1E1E1;
+    font-size: 48px;
+}
+
+.date__detail__text{
+    color: #1EA5E7;
+    text-shadow: 0px 0px 50px rgba(30, 165, 231, 0.25);
+    font-size: 24px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.text__detail__text{
+
+    color: #B8B8B8;
+    font-size: 16px;
+}
+
+.detail__btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 50px;
+    margin-top: 2rem;
+
+    border-radius: 20px;
+    border: 1px solid #1EA5E7;
+    background: #0086C8;
+    cursor: pointer;
+    box-shadow: 0px 0px 50px 25px rgba(30, 165, 231, 0.25);
+}
+
+.volunteers__needed{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 24px;
+    color: #1EA5E7;
+}
+
+@media (max-width: 830px){
+    .contact-form{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .text__avatar p{
+        display: none;
+    }
+    .avatarLogo__text{
+        justify-content: center;
+    }
+    .wrapper__nav {
+        display: none;
+    }
+    .menu-icon {
+        display: flex; 
+    }
+}

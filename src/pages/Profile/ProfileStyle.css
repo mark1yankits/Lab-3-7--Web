@@ -1,0 +1,137 @@
+
+.main__container__profile{
+    box-shadow: 3px 3px 20px #656873;
+    overflow: hidden; /* Обрізає зайве */
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5rem;
+}
+
+.avatarLogo__text{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content:space-around;
+    gap: 3rem;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.photo__container__main {
+    position: relative;
+    display: inline-block;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    overflow: hidden; 
+    width: 100%;
+    max-width: 250px; 
+}
+
+.avatar__profile {
+    width: 65%; 
+    height: auto; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+.shape__container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    width: 10%; /* Можна налаштувати ширину кнопки */
+    height: 10%; /* Можна налаштувати висоту кнопки */
+}
+
+.shape__imgProfile {
+    width: 100%; /* Це дозволяє зображенню заповнювати кнопку */
+    height: 100%;
+    object-fit: contain; /* Зображення в кнопці зберігає пропорції без обрізки */
+}
+
+
+.text__avatar p{
+    color: #858B95;
+    margin-right: 2rem;
+}
+
+
+.contact-form {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    color: #858B95;
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.form-group input ,select{
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid  #3C3D42;
+    background: #2C2D31;
+    padding: 10px;
+    align-items: center;
+    color: #E1E1E1;
+}
+
+.form-group select {
+    color: #858B95;
+}
+
+.name__form{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn__submit {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    padding: 15px 50px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 1.5rem;
+
+
+
+    border-radius: 20px;
+    border: 1px solid #1EA5E7;
+    background: #1EA5E7;
+
+    box-shadow: 0px 0px 40px 25px rgba(30, 165, 231, 0.15);
+    margin-bottom: 2rem;
+}
+
+
+@media (max-width: 830px){
+    .contact-form{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .text__avatar p{
+        display: none;
+    }
+    .avatarLogo__text{
+        justify-content: center;
+    }
+    .wrapper__nav {
+        display: none;
+    }
+    .menu-icon {
+        display: flex; 
+    }
+}

@@ -1,0 +1,58 @@
+/* ---------------------------- */
+/*            Footer            */
+/* ---------------------------- */
+
+
+
+
+
+footer{
+    margin: 0 8%;
+}
+
+.hr__footer{
+    border-top: 2px solid #3C3D42;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+}
+.footer__container{
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+/* icon container */
+
+.icon__text{
+    display: flex;
+    white-space: nowrap;
+    margin-right: 2rem;
+    color: #858B95;
+    align-items: center;
+    gap: 1rem;
+}
+.TextProcessor{
+    margin-top: 0.5rem;
+    color: #858B95;
+    margin-right: 2rem;
+}
+/*  */
+
+.title__footer__Inf{
+    color: #E1E1E1;
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+}
+.text__footer__Inf{
+    color: #B8B8B8;
+}
+/* Qr_code */
+.qr__code__container{
+    margin-left: 2rem;
+}
+
+@media (max-width: 830px){
+    .footer__inf{
+        display: none;
+    }
+}
