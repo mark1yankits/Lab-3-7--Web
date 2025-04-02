@@ -243,15 +243,9 @@ body {
 
 }
 
-.inf__container {
-    width: 50%; 
-    padding-right: 20px;
-}
 
-.location__text{
-    display: flex;
-    gap: 1rem;
-}
+
+
 
 .title__infContainer{
     color: #E1E1E1;
