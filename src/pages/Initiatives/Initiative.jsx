@@ -113,6 +113,13 @@ const Initiative = () => {
         return { start: startOfMonth.toISOString().split('T')[0], end: endOfMonth.toISOString().split('T')[0] };
     };
     
+
+    const resetFilter =()=>{
+        setSelectedDates([]);
+        setSelectedType([]);
+        setSelectedLocations([]);
+        setFilteredInitiatives(initiatives);
+    }
     return (
         <main>
             <div className="filter__sort">
@@ -131,15 +138,15 @@ const Initiative = () => {
                     <div className="container__location__filter">
                         <p className="text__filter">Локація </p>
                         <label>
-                            <input onChange={handleLocationChange} type="checkbox" className="checkbox active" value="Львів" />
+                            <input onChange={handleLocationChange} type="checkbox" className="checkbox" checked={selectedLocations.includes("Львів")} value="Львів" />
                             Львів
                         </label>
                         <label>
-                            <input onChange={handleLocationChange} type="checkbox" className="checkbox" value="Рівне" />
+                            <input onChange={handleLocationChange} type="checkbox" className="checkbox" checked={selectedLocations.includes("Рівне")} value="Рівне" />
                             Рівне
                         </label>
                         <label>
-                            <input onChange={handleLocationChange} type="checkbox" className="checkbox" value="Київ" />
+                            <input onChange={handleLocationChange} type="checkbox" className="checkbox" checked={selectedLocations.includes("Київ")} value="Київ" />
                             Київ
                         </label>
                     </div>
@@ -148,15 +155,15 @@ const Initiative = () => {
                     <div className="container__date__filter">
                         <p className="text__filter">Дата </p>
                         <label>
-                            <input onChange={handleDateChange} type="checkbox" className="checkbox active" value="today" />
+                            <input onChange={handleDateChange} type="checkbox" className="checkbox active" checked={selectedDates.includes("today")} value="today" />
                             Сьогодні
                         </label>
                         <label>
-                            <input onChange={handleDateChange} type="checkbox" className="checkbox" value="week" />
+                            <input onChange={handleDateChange} type="checkbox" className="checkbox" checked={selectedDates.includes("week")} value="week" />
                             Цього тижня
                         </label>
                         <label>
-                            <input onChange={handleDateChange} type="checkbox" className="checkbox" value="month" />
+                            <input onChange={handleDateChange} type="checkbox" className="checkbox" checked={selectedDates.includes("month")} value="month" />
                             Цього місяця
                         </label>
                     </div>
@@ -165,21 +172,21 @@ const Initiative = () => {
                     <div className="container__date__filter">
                         <p className="text__filter">Тип</p>
                         <label>
-                            <input onChange={handleTypeChange} type="checkbox" className="checkbox active" value="ecogology" />
+                            <input onChange={handleTypeChange} type="checkbox" className="checkbox active" checked={selectedType.includes("ecogology")}  value="ecogology" />
                             Екологія 
                         </label>
                         <label>
-                            <input onChange={handleTypeChange} type="checkbox" className="checkbox" value="animalSupport" />
+                            <input onChange={handleTypeChange} type="checkbox" className="checkbox" checked={selectedType.includes("animalSupport")}  value="animalSupport" />
                             Допомога тваринам
                         </label>
                         <label>
-                            <input onChange={handleTypeChange} type="checkbox" className="checkbox" value="socialSupport" />
+                            <input onChange={handleTypeChange} type="checkbox" className="checkbox" checked={selectedType.includes("socialSupport")} value="socialSupport" />
                             соціальна підтримка 
                         </label>
                     </div>
                     <hr className="item__hr" />
                     <div className="skills__container">
-                        <button className="resetFilter"> Скинути фільтр</button> 
+                        <button onClick={resetFilter}  className="resetFilter"> Скинути фільтр</button> 
                     </div>
                 </div>
                 <div className="item__intiatives__container">
