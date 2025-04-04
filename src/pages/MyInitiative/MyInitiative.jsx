@@ -3,13 +3,34 @@ import React from "react";
 // css
 import "./MyInitiativeStyle.css"
 function MyInitiative(){
+
+    const itemSelected  = JSON.parse(localStorage.getItem("selectedInitative"));
+
+
 return (
     <main>
         <div className="main__container__about-us">
             <div className="left__part__about-us">
-                <p className="title__myHistory">Моя історія</p>
+                <p className="title__myHistory">Мої активні ініціативи</p>
                 <div className="container__myHistory">
                     {/* item */}
+                    {itemSelected ? 
+                    <a class="items__myHistory">
+                        <div className="photo__container">
+                        <img src={itemSelected.img} alt=""/>
+                        </div>
+                        <div className="inf__container_Select">
+                            <h2 className="title__infContainer">{itemSelected.title}</h2>
+                            <p className="date__text">{itemSelected.date}</p>
+                            <p className="location__text">
+                                <img src="/icon/navigation__icon.png" alt=""/>
+                                <span>Львів</span>
+                            </p>
+                            <p className="text__inf">{itemSelected.description}</p>
+                            
+                        </div>
+                    </a>  :
+                    <p>Немає вибраних ініціатив</p>}
                 </div>
             </div>
 
