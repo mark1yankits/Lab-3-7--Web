@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./HeaderStyle.css";
 
 function Header() {
 const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const location = useLocation(); 
 const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev); 
 };
+
 
 return (
     <header>
@@ -29,13 +30,14 @@ return (
         </div>
 
         <div className="wrapper__nav">
-            <Link className="nav__text active" to="/">
+            <Link className={`nav__text ${location.pathname === "/" ? "active" : ""}`}
+        to="/">
             Про нас
             </Link>
-            <Link className="nav__text" to="/initiatives">
+            <Link className={`nav__text  ${location.pathname === "/initiatives" ? "active" : ""}`} to="/initiatives">
             Ініціативи
             </Link>
-            <Link className="nav__text" to="/about-us">
+            <Link className={`nav__text ${location.pathname === "/about-us" ? "active" : ""} `}to="/about-us">
             Моя Участь
             </Link>
             <Link to="/profile" className="account-container active">

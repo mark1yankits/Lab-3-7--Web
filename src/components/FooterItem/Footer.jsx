@@ -24,7 +24,7 @@ function Footer(){
                     </p>
                 </div>
                 <div className="qr__code__container">
-                    <img src="img/Vector.png" alt="QR-код для донату" />
+                    <img src="/img/Vector.png" alt="QR-код для донату" />
                 </div>
             </div>
         </footer>
