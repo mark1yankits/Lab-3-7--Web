@@ -91,6 +91,7 @@ const Initiative = () => {
         }
     
         setFilteredInitiatives(filtered);
+        
     };
     
 
