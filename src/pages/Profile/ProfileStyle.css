@@ -42,14 +42,14 @@
     right: 0;
     background-color: transparent;
     border: none;
-    width: 10%; /* Можна налаштувати ширину кнопки */
-    height: 10%; /* Можна налаштувати висоту кнопки */
+    width: 10%;
+    height: 10%; 
 }
 
 .shape__imgProfile {
-    width: 100%; /* Це дозволяє зображенню заповнювати кнопку */
+    width: 100%;
     height: 100%;
-    object-fit: contain; /* Зображення в кнопці зберігає пропорції без обрізки */
+    object-fit: contain;
 }
 
 
