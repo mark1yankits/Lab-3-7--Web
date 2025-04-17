@@ -2,27 +2,29 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./HeaderStyle.css";
 
-import {getAuth} from "firebase/auth";
+import {getAuth, onAuthStateChanged} from "firebase/auth";
 
 function Header() {
-const [isMenuOpen, setIsMenuOpen] = useState(false);
-const location = useLocation(); 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [username, setUsername] = useState(""); 
+    const location = useLocation(); 
 
+    const auth = getAuth();
 
-const auth = getAuth();
-const [username, setUsername] = useState("");
+    const toggleMenu = () => {
+        setIsMenuOpen((prev) => !prev); 
+    };
 
-const user = auth.currentUser;
-
-const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev); 
-};
-
-useEffect(()=>{
-    if(user){
-        setUsername(user.displayName);
-    }
-}, [])
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUsername(user.displayName); 
+            } else {
+                setUsername("");
+            }
+        });
+        return () => unsubscribe();
+    }, [auth]);
 
 
 return (
@@ -55,7 +57,8 @@ return (
             <Link className={`nav__text ${location.pathname === "/about-us" ? "active" : ""} `}to="/about-us">
             Моя Участь
             </Link>
-            <Link to={user? "/profile": "/login"} className="account-container active">
+            <Link to={auth.currentUser ? "/profile" : "/login"} className="account-container active" >
+
             <img
                 className="icon__logo"
                 src="/icon/account-icon.png"
@@ -65,7 +68,7 @@ return (
             </Link>
         </div>
         </div>
-
+        
         <nav className={`menu ${isMenuOpen ? "open" : ""}`}>
         <ul className={`menu_list ${isMenuOpen ? "active" : ""}`}>
             <img src="/icon/image-removebg-preview.png" alt="Logo" />
