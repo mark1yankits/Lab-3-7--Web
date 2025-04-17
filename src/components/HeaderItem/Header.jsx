@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./HeaderStyle.css";
+
+import {getAuth} from "firebase/auth";
 
 function Header() {
 const [isMenuOpen, setIsMenuOpen] = useState(false);
 const location = useLocation(); 
+
+
+const auth = getAuth();
+const [username, setUsername] = useState("");
+
+const user = auth.currentUser;
+
 const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev); 
 };
+
+useEffect(()=>{
+    if(user){
+        setUsername(user.displayName);
+    }
+}, [])
 
 
 return (
@@ -40,13 +55,13 @@ return (
             <Link className={`nav__text ${location.pathname === "/about-us" ? "active" : ""} `}to="/about-us">
             Моя Участь
             </Link>
-            <Link to="/profile" className="account-container active">
+            <Link to={user? "/profile": "/login"} className="account-container active">
             <img
                 className="icon__logo"
                 src="/icon/account-icon.png"
                 alt="account icon"
             />
-            <p className="text__username">Кіц Маркіян</p>
+            <p className="text__username">{username || "Увійти/Реєстрація"}</p>
             </Link>
         </div>
         </div>
